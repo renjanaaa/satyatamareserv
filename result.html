@@ -5,6 +5,152 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hasil Pencarian Bus - Satyatama Transport</title>
     <link rel="stylesheet" href="results.css">
+    <style>
+        /* FORCE HEADER TO MATCH rulse.html EXACTLY */
+        .header {
+          background: white !important;
+          box-shadow: 0 2px 10px rgba(0, 196, 255, 0.2) !important;
+          position: fixed !important;
+          width: 100% !important;
+          top: 0 !important;
+          z-index: 1000 !important;
+        }
+
+        .navbar {
+          padding: 0.6rem 0 !important;
+        }
+
+        .nav-container {
+          max-width: 1200px !important;
+          margin: 0 auto !important;
+          padding: 0 20px !important;
+          display: flex !important;
+          justify-content: space-between !important;
+          align-items: center !important;
+        }
+
+        .logo-img {
+          height: 60px !important;
+          width: auto !important;
+          max-width: 300px !important;
+          object-fit: contain !important;
+        }
+
+        /* PROPER SPACING AND LAYOUT */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Ensure proper spacing between sections */
+        body {
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        /* Add proper spacing to navigation items */
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 2rem;
+        }
+
+        .nav-menu .nav-item {
+            margin: 0;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            background: #f8f9fa;
+            color: #00c4ff;
+        }
+
+        .nav-link.active {
+            background: #00c4ff;
+            color: white;
+        }
+
+        /* Mobile menu styles */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .hamburger .bar {
+            width: 25px;
+            height: 3px;
+            background: #333;
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+
+        /* Search summary spacing adjustment */
+        .search-summary {
+            padding-top: 100px; /* Add space for fixed header */
+        }
+
+        /* Mobile responsive header */
+        @media (max-width: 768px) {
+          .logo-img {
+            height: 50px !important;
+          }
+          
+          .navbar {
+            padding: 0.6rem 0 !important;
+          }
+
+          .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background-color: white;
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+                padding: 2rem 0;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .search-summary {
+                padding-top: 80px;
+            }
+        }
+
+        @media (max-width: 480px) {
+          .logo-img {
+            height: 40px !important;
+          }
+        }
+
+        .footer-logo-img {
+            height: 40px !important; /* Dari 60px ke 40px */
+            width: auto !important;
+            margin-bottom: 1rem !important;
+        }
+    </style>
 </head>
 <body>
     <!-- Header -->
@@ -13,7 +159,7 @@
             <div class="nav-container">
                 <div class="logo">
                     <a href="index.html">
-                        <img src="C:\File Folder\Satyatama\Web Reservasi\logo.svg?height=50&width=200" alt="Satyatama Transport Logo" class="logo-img">
+                        <img src="logo.svg" alt="Satyatama Transport Logo" class="logo-img">
                     </a>
                 </div>
                 <ul class="nav-menu">
@@ -21,16 +167,10 @@
                         <a href="index.html" class="nav-link">Beranda</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">Tiket Bus Online</a>
+                        <a href="rules.html" class="nav-link">Syarat dan Ketentuan</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">Membantu</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">Partner Kami</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link profile-link">👤 ▼</a>
+                        <a href="akun.html" class="nav-link">Akun</a>
                     </li>
                 </ul>
                 <div class="hamburger">
@@ -125,43 +265,43 @@
         </div>
     </section>
 
-    <script src="results.js"></script>
-
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
                     <div class="footer-logo">
-                        <img src="C:\File Folder\Satyatama\Web Reservasi\logo.svg?height=40&width=160" alt="Satyatama Transport Logo" class="footer-logo-img">
+                        <img src="logo.svg" alt="Satyatama Transport Logo" class="footer-logo-img">
                     </div>
                     <p class="footer-description">
                         Indulge in Luxury, Embrace the Comfort
                     </p>
                 </div>
                 <div class="footer-section">
-                    <h4 class="footer-title">Layanan</h4>
+                    <h4 class="footer-title">Bantuan</h4>
                     <ul class="footer-links">
-                        <li><a href="#">Tiket Bus</a></li>
-                        <li><a href="#">Bantuan</a></li>
-                        <li><a href="#">Syarat & Ketentuan</a></li>
-                        <li><a href="#">Kebijakan Privasi</a></li>
+                        <li><a href="index.html">Reservasi Tiket</a></li>
+                        <li><a href="rules.html">Syarat & Ketentuan</a></li>
+                        <li><a href="bantuan.html">Bantuan</a></li>
+                        <li><a href="kontak.html">Hubungi Kami</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h4 class="footer-title">Kontak</h4>
                     <div class="footer-contact">
-                        <p>📞 Call Center: (0331) 3080512</p>
-                        <p>✉️ info@satyatamatransport.com</p>
-                        <p>📍 Jember, Jawa Timur</p>
+                        <p><span class="contact-icon-small">🏢</span> PT. Arkanda Pradana Aditya</p>
+                        <p><span class="contact-icon-small">📍</span> Jl. Brawijaya no.90, Mangli, Kec. Kaliwates, Jember, Jawa Timur 68131</p>
+                        <p><span class="contact-icon-small">📞</span> Call Center: (0331) 3080512</p>
+                        <p><span class="contact-icon-small">✉️</span> info@satyatamatransport.com</p>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Satyatama Transport. Hak Cipta Dilindungi.</p>
+                <p>&copy; 2025 PT. Arkanda Pradana Aditya - Satyatama Transport. Hak Cipta Dilindungi.</p>
             </div>
         </div>
     </footer>
 
+    <script src="results.js"></script>
 </body>
 </html>

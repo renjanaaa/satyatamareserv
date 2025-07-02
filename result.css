@@ -17,9 +17,9 @@ body {
   padding: 0 20px;
 }
 
-/* Header Styles */
+/* Header Styles - WHITE BACKGROUND WITH BLUE TEXT - COMPACT */
 .header {
-  background: #00c4ff;
+  background: white;
   box-shadow: 0 2px 10px rgba(0, 196, 255, 0.2);
   position: fixed;
   width: 100%;
@@ -28,7 +28,7 @@ body {
 }
 
 .navbar {
-  padding: 0.8rem 0;
+  padding: 0.6rem 0; /* REDUCED from 0.8rem to 0.6rem for more compact */
 }
 
 .nav-container {
@@ -41,9 +41,9 @@ body {
 }
 
 .logo-img {
-  height: 45px;
+  height: 60px; /* LARGER LOGO like rules.html */
   width: auto;
-  max-width: 200px;
+  max-width: 300px;
   object-fit: contain;
 }
 
@@ -56,26 +56,42 @@ body {
 
 .nav-link {
   text-decoration: none;
-  color: white;
+  color: #00c4ff; /* BLUE TEXT */
   font-weight: 500;
   font-size: 0.9rem;
-  transition: color 0.3s ease;
+  padding: 12px 20px; /* BUTTON-LIKE PADDING */
+  border-radius: 25px; /* ROUNDED CORNERS */
+  transition: all 0.3s ease;
 }
 
 .nav-link:hover {
-  color: #e6f7ff;
+  background: rgba(0, 196, 255, 0.1); /* LIGHT BLUE BACKGROUND ON HOVER */
+  color: #0099cc;
 }
 
-.profile-link {
-  background: rgba(255, 255, 255, 0.2);
-  padding: 8px 12px;
-  border-radius: 20px;
+.nav-link.active {
+  background: #00c4ff; /* BLUE BACKGROUND FOR ACTIVE */
+  color: white; /* WHITE TEXT FOR ACTIVE */
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background: #00c4ff; /* BLUE HAMBURGER */
+  margin: 3px 0;
+  transition: 0.3s;
 }
 
 /* Search Summary */
 .search-summary {
   background: white;
-  padding: 100px 0 20px;
+  padding: 90px 0 20px; /* ADJUSTED for compact header */
   border-bottom: 1px solid #e0e0e0;
 }
 
@@ -408,8 +424,34 @@ body {
   color: #ccc;
 }
 
-/* Responsive Design */
+/* Mobile Navigation */
 @media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-menu {
+    position: fixed;
+    left: -100%;
+    top: 80px; /* ADJUSTED for compact header */
+    flex-direction: column;
+    background-color: white;
+    width: 100%;
+    text-align: center;
+    transition: 0.3s;
+    box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+    padding: 2rem 0;
+    z-index: 999;
+  }
+
+  .nav-menu.active {
+    left: 0;
+  }
+
+  .logo-img {
+    height: 50px; /* SMALLER on mobile */
+  }
+
   .results-layout {
     grid-template-columns: 1fr;
   }
@@ -440,8 +482,12 @@ body {
 }
 
 @media (max-width: 480px) {
+  .logo-img {
+    height: 40px; /* EVEN SMALLER on very small screens */
+  }
+
   .search-summary {
-    padding: 90px 0 15px;
+    padding: 80px 0 15px; /* ADJUSTED for compact header */
   }
 
   .route-info h1 {

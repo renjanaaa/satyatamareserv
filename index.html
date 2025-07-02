@@ -5,6 +5,317 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Satyatama Transport - Booking Bus Online</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* FORCE HEADER TO MATCH rulse.html EXACTLY */
+        .header {
+          background: white !important;
+          box-shadow: 0 2px 10px rgba(0, 196, 255, 0.2) !important;
+          position: fixed !important;
+          width: 100% !important;
+          top: 0 !important;
+          z-index: 1000 !important;
+        }
+
+        .navbar {
+          padding: 0.6rem 0 !important;
+        }
+
+        .nav-container {
+          max-width: 1200px !important;
+          margin: 0 auto !important;
+          padding: 0 20px !important;
+          display: flex !important;
+          justify-content: space-between !important;
+          align-items: center !important;
+        }
+
+        .logo-img {
+          height: 60px !important;
+          width: auto !important;
+          max-width: 300px !important;
+          object-fit: contain !important;
+        }
+
+        /* PROPER SPACING AND LAYOUT */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Ensure proper spacing between sections */
+        body {
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        /* Add proper spacing to navigation items */
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 2rem;
+        }
+
+        .nav-menu .nav-item {
+            margin: 0;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            background: #f8f9fa;
+            color: #00c4ff;
+        }
+
+        .nav-link.active {
+            background: #00c4ff;
+            color: white;
+        }
+
+        /* Mobile menu styles */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .hamburger .bar {
+            width: 25px;
+            height: 3px;
+            background: #333;
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+
+        /* Hero section spacing adjustment */
+        .hero-search {
+            padding-top: 100px; /* Add space for fixed header */
+        }
+
+        /* PERFECTLY CENTERED FULL WIDTH SEARCH FORM - NO GRAY */
+        .search-container {
+            width: 100vw !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            position: relative !important;
+            left: 50% !important;
+            right: 50% !important;
+            margin-left: -45vw !important; /* Back to perfect center */
+            margin-right: -50vw !important;
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+        }
+
+        .search-form {
+            background: rgba(255, 255, 255, 0.95) !important;
+            border-radius: 25px !important;
+            padding: 3rem !important;
+            width: auto !important;
+            max-width: 1300px !important;
+            box-sizing: border-box !important;
+            margin: 0 !important;
+        }
+
+        .search-row {
+            display: grid !important;
+            grid-template-columns: 1.2fr 60px 1.4fr 1.3fr 1.3fr 220px !important; /* Increased KE column from 1.2fr to 1.4fr */
+            gap: 1rem !important;
+            align-items: end !important;
+            justify-items: stretch !important;
+            width: 100% !important;
+        }
+
+        .search-field {
+            display: flex !important;
+            flex-direction: column !important;
+            width: 100% !important;
+            min-width: 0 !important;
+        }
+
+        .search-field label {
+            font-size: 0.85rem !important;
+            font-weight: 600 !important;
+            color: #666 !important;
+            margin-bottom: 0.5rem !important;
+            text-transform: uppercase !important;
+            letter-spacing: 0.5px !important;
+            white-space: nowrap !important;
+        }
+
+        .search-input {
+            height: 60px !important;
+            padding: 1rem 1.5rem !important;
+            font-size: 1rem !important;
+            border-radius: 12px !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
+            border: 2px solid #e0e0e0 !important;
+            transition: all 0.3s ease !important;
+            min-width: 0 !important;
+        }
+
+        .search-input:focus {
+            border-color: #00c4ff !important;
+            outline: none !important;
+            box-shadow: 0 0 0 3px rgba(0, 196, 255, 0.1) !important;
+        }
+
+        .search-btn {
+            height: 60px !important;
+            padding: 1rem 1.5rem !important;
+            font-size: 1.1rem !important;
+            font-weight: 700 !important;
+            background: #00c4ff !important;
+            color: white !important;
+            border: none !important;
+            border-radius: 12px !important;
+            cursor: pointer !important;
+            transition: all 0.3s ease !important;
+            text-transform: uppercase !important;
+            letter-spacing: 0.5px !important;
+            white-space: nowrap !important;
+        }
+
+        .search-btn:hover {
+            background: #0099cc !important;
+            transform: translateY(-2px) !important;
+            box-shadow: 0 5px 15px rgba(0, 196, 255, 0.3) !important;
+        }
+
+        .swap-button {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+        }
+
+        .swap-button button {
+            width: 50px !important;
+            height: 50px !important;
+            border-radius: 50% !important;
+            background: #00c4ff !important;
+            color: white !important;
+            border: none !important;
+            font-size: 1.5rem !important;
+            cursor: pointer !important;
+            transition: all 0.3s ease !important;
+        }
+
+        .swap-button button:hover {
+            background: #0099cc !important;
+            transform: rotate(180deg) !important;
+        }
+
+        .input-wrapper {
+            position: relative !important;
+            width: 100% !important;
+        }
+
+        .input-icon {
+            position: absolute !important;
+            left: 1rem !important;
+            top: 50% !important;
+            transform: translateY(-50%) !important;
+            font-size: 1.2rem !important;
+            color: #666 !important;
+            z-index: 1 !important;
+        }
+
+        .search-input {
+            padding-left: 3.5rem !important; /* Space for icon */
+        }
+
+        .dropdown-arrow {
+            position: absolute !important;
+            right: 1rem !important;
+            top: 50% !important;
+            transform: translateY(-50%) !important;
+            color: #666 !important;
+            pointer-events: none !important;
+        }
+
+        /* Mobile responsive untuk search form */
+        @media (max-width: 1024px) {
+            .search-row {
+                grid-template-columns: 1fr !important;
+                gap: 1.5rem !important;
+            }
+            
+            .search-form {
+                padding: 2rem 1.5rem !important;
+            }
+
+            .swap-button {
+                order: 3 !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .search-form {
+                padding: 2rem 1rem !important;
+                border-radius: 20px !important;
+            }
+        }
+
+        /* Mobile responsive header */
+        @media (max-width: 768px) {
+          .logo-img {
+            height: 50px !important;
+          }
+          
+          .navbar {
+            padding: 0.6rem 0 !important;
+          }
+
+          .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background-color: white;
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+                padding: 2rem 0;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hero-search {
+                padding-top: 80px;
+            }
+        }
+
+        @media (max-width: 480px) {
+          .logo-img {
+            height: 40px !important;
+          }
+        }
+
+        .footer-logo-img {
+            height: 40px !important;
+            width: auto !important;
+            margin-bottom: 1rem !important;
+        }
+    </style>
 </head>
 <body>
     <!-- Header -->
@@ -12,20 +323,17 @@
         <nav class="navbar">
             <div class="nav-container">
                 <div class="logo">
-                    <img src="C:\File Folder\Satyatama\Web Reservasi\logo.svg?height=50&width=200" alt="Satyatama Transport Logo" class="logo-img">
+                    <img src="logo.svg" alt="Satyatama Transport Logo" class="logo-img">
                 </div>
                 <ul class="nav-menu">
                     <li class="nav-item">
-                        <a href="#" class="nav-link">Tiket Bus Online</a>
+                        <a href="index.html" class="nav-link active">Beranda</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">Bahasa Indonesia ▼</a>
+                        <a href="rules.html" class="nav-link">Syarat dan Ketentuan</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">Tiket Anda ▼</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link profile-link">👤 ▼</a>
+                        <a href="akun.html" class="nav-link">Akun</a>
                     </li>
                 </ul>
                 <div class="hamburger">
@@ -128,7 +436,7 @@
 
                             <!-- Search Button -->
                             <button type="submit" class="search-btn" id="searchBtn">
-                                Cari Bus
+                                CARI BUS
                             </button>
                         </div>
                     </form>
@@ -143,32 +451,33 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <div class="footer-logo">
-                        <img src="C:\File Folder\Satyatama\Web Reservasi\logo.svg?height=40&width=160" alt="Satyatama Transport Logo" class="footer-logo-img">
+                        <img src="logo.svg" alt="Satyatama Transport Logo" class="footer-logo-img">
                     </div>
                     <p class="footer-description">
                         Indulge in Luxury, Embrace the Comfort
                     </p>
                 </div>
                 <div class="footer-section">
-                    <h4 class="footer-title">Layanan</h4>
+                    <h4 class="footer-title">Bantuan</h4>
                     <ul class="footer-links">
-                        <li><a href="#">Tiket Bus</a></li>
-                        <li><a href="#">Bantuan</a></li>
-                        <li><a href="#">Syarat & Ketentuan</a></li>
-                        <li><a href="#">Kebijakan Privasi</a></li>
+                        <li><a href="index.html">Reservasi Tiket</a></li>
+                        <li><a href="rules.html">Syarat & Ketentuan</a></li>
+                        <li><a href="bantuan.html">Bantuan</a></li>
+                        <li><a href="kontak.html">Hubungi Kami</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h4 class="footer-title">Kontak</h4>
                     <div class="footer-contact">
-                        <p>📞 Call Center: (0331) 3080512</p>
-                        <p>✉️ info@satyatamatransport.com</p>
-                        <p>📍 Jember, Jawa Timur</p>
+                        <p><span class="contact-icon-small">🏢</span> PT. Arkanda Pradana Aditya</p>
+                        <p><span class="contact-icon-small">📍</span> Jl. Brawijaya no.90, Mangli, Kec. Kaliwates, Jember, Jawa Timur 68131</p>
+                        <p><span class="contact-icon-small">📞</span> Call Center: (0331) 3080512</p>
+                        <p><span class="contact-icon-small">✉️</span> info@satyatamatransport.com</p>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Satyatama Transport. Hak Cipta Dilindungi.</p>
+                <p>&copy; 2025 PT. Arkanda Pradana Aditya - Satyatama Transport. Hak Cipta Dilindungi.</p>
             </div>
         </div>
     </footer>

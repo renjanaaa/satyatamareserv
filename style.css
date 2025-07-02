@@ -28,7 +28,7 @@ body {
 }
 
 .navbar {
-  padding: 0.8rem 0;
+  padding: 0.6rem 0; /* REDUCED from 0.8rem to 0.6rem for more compact */
 }
 
 .nav-container {
@@ -41,9 +41,9 @@ body {
 }
 
 .logo-img {
-  height: 45px;
+  height: 60px; /* LARGER LOGO like rules.html */
   width: auto;
-  max-width: 200px;
+  max-width: 300px;
   object-fit: contain;
 }
 
@@ -59,18 +59,19 @@ body {
   color: #00c4ff; /* BLUE TEXT */
   font-weight: 500;
   font-size: 0.9rem;
-  transition: color 0.3s ease;
+  padding: 12px 20px; /* BUTTON-LIKE PADDING */
+  border-radius: 25px; /* ROUNDED CORNERS */
+  transition: all 0.3s ease;
 }
 
 .nav-link:hover {
-  color: #0099cc; /* DARKER BLUE ON HOVER */
+  background: rgba(0, 196, 255, 0.1); /* LIGHT BLUE BACKGROUND ON HOVER */
+  color: #0099cc;
 }
 
-.profile-link {
-  background: rgba(0, 196, 255, 0.1); /* LIGHT BLUE BACKGROUND */
-  padding: 8px 12px;
-  border-radius: 20px;
-  color: #00c4ff;
+.nav-link.active {
+  background: #00c4ff; /* BLUE BACKGROUND FOR ACTIVE */
+  color: white; /* WHITE TEXT FOR ACTIVE */
 }
 
 .hamburger {
@@ -91,7 +92,7 @@ body {
 .hero-search {
   background: #00c4ff; /* SOLID BLUE BACKGROUND */
   min-height: 100vh;
-  padding-top: 80px;
+  padding-top: 90px; /* ADJUSTED for compact header */
   position: relative;
   overflow: hidden;
 }
@@ -104,7 +105,7 @@ body {
   flex-direction: column; /* STACK VERTICALLY */
   align-items: center; /* CENTER HORIZONTALLY */
   justify-content: center; /* CENTER VERTICALLY */
-  min-height: calc(100vh - 80px);
+  min-height: calc(100vh - 90px); /* ADJUSTED for compact header */
   text-align: center; /* CENTER TEXT */
 }
 
@@ -140,7 +141,6 @@ body {
   margin: 2rem auto;
   width: 95%; /* Wider - almost full width */
   max-width: 1400px; /* Increase max width */
-  /* REMOVE THE TRANSFORM POSITIONING */
 }
 
 .search-form {
@@ -485,12 +485,6 @@ body {
   }
 }
 
-@media (max-width: 1200px) {
-  .promo-badge h1 {
-    font-size: 1.8rem;
-  }
-}
-
 @media (max-width: 1024px) {
   .search-row {
     flex-wrap: wrap;
@@ -516,7 +510,7 @@ body {
   .nav-menu {
     position: fixed;
     left: -100%;
-    top: 70px;
+    top: 80px; /* Adjusted for larger header */
     flex-direction: column;
     background-color: white;
     width: 100%;
@@ -524,47 +518,135 @@ body {
     transition: 0.3s;
     box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
     padding: 2rem 0;
+    z-index: 999;
   }
 
   .nav-menu.active {
     left: 0;
   }
 
+  /* Mobile logo size adjustment */
+  .logo-img {
+    height: 50px;
+  }
+
+  .navbar {
+    padding: 0.8rem 0;
+  }
+
   .hero-background {
-    grid-template-columns: 1fr;
-    text-align: center;
-    gap: 2rem;
+    padding: 20px 15px;
+    min-height: calc(100vh - 80px);
+    padding-top: 80px;
   }
 
   .promo-badge h1 {
-    font-size: 1.8rem;
-    white-space: normal; /* Allow wrapping on mobile */
+    font-size: 1.6rem;
+    line-height: 1.3;
+    margin-bottom: 2rem;
   }
 
   .price-highlight {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
+    display: inline-block;
+    margin: 0.2rem 0;
+  }
+
+  /* IMPROVED MOBILE SEARCH FORM */
+  .search-container {
+    width: 95%;
+    padding: 2rem 1.5rem;
+    margin: 2rem auto;
+    max-width: 500px;
   }
 
   .search-row {
+    display: flex;
     flex-direction: column;
     gap: 1rem;
+    align-items: stretch;
   }
 
-  .search-container {
-    width: 90vw;
-    padding: 1.5rem;
+  .search-field {
+    width: 100%;
+    min-width: unset;
+    flex: none;
   }
 
+  .search-field label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    display: block;
+    text-align: left;
+  }
+
+  .search-input {
+    width: 100%;
+    padding: 18px 18px 18px 55px;
+    font-size: 1rem;
+    min-height: 56px;
+    border: 2px solid #e8e8e8;
+    border-radius: 12px;
+  }
+
+  .input-icon {
+    left: 18px;
+    font-size: 1.2rem;
+  }
+
+  /* SWAP BUTTON POSITIONED BETWEEN FROM AND TO - CLOSER SPACING */
   .swap-button {
-    order: 3;
-    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: -0.5rem 0;
+    order: 2;
+    position: relative;
+    z-index: 10;
   }
 
+  .swap-button button {
+    width: 48px;
+    height: 48px;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 12px rgba(0, 196, 255, 0.3);
+    background: #00c4ff;
+    border: none;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .swap-button button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(0, 196, 255, 0.4);
+  }
+
+  /* SEARCH BUTTON FULL WIDTH */
+  .search-btn {
+    width: 100%;
+    padding: 18px 24px;
+    font-size: 1rem;
+    font-weight: 700;
+    min-height: 56px;
+    margin-top: 0.5rem;
+    order: 6;
+  }
+
+  /* UPDATE FIELD ORDERING */
   .search-field:nth-child(1) {
     order: 1;
   }
-  .search-field:nth-child(3) {
+  .swap-button {
     order: 2;
+  }
+  .search-field:nth-child(3) {
+    order: 3;
   }
   .search-field:nth-child(4) {
     order: 4;
@@ -575,9 +657,34 @@ body {
   .search-btn {
     order: 6;
   }
+
+  /* Popular routes mobile */
+  .routes-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .route-card {
+    padding: 1.5rem;
+  }
+
+  .route-info h3 {
+    font-size: 1.2rem;
+  }
+
+  /* Footer mobile */
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    text-align: center;
+  }
 }
 
 @media (max-width: 480px) {
+  .container {
+    padding: 0 10px;
+  }
+
   .promo-badge h1 {
     font-size: 1.4rem;
   }
@@ -587,11 +694,120 @@ body {
   }
 
   .search-container {
-    width: 95vw;
-    padding: 1rem;
+    width: 98%;
+    padding: 1.5rem 1rem;
+    margin: 1.5rem auto;
+  }
+
+  .search-row {
+    gap: 0.75rem;
+  }
+
+  .search-input {
+    padding: 16px 16px 16px 50px;
+    font-size: 0.95rem;
+    min-height: 48px;
+  }
+
+  .input-icon {
+    left: 15px;
+    font-size: 1.1rem;
+  }
+
+  .swap-button {
+    margin: -0.75rem 0;
+  }
+
+  .swap-button button {
+    width: 44px;
+    height: 44px;
+    font-size: 1rem;
+  }
+
+  .search-btn {
+    padding: 16px 20px;
+    font-size: 0.95rem;
+    min-height: 48px;
+  }
+
+  .route-card {
+    padding: 1.2rem;
+  }
+
+  .section-header h2 {
+    font-size: 2rem;
+  }
+
+  /* Mobile logo even smaller for very small screens */
+  .logo-img {
+    height: 40px;
+  }
+}
+
+/* Extra small phones */
+@media (max-width: 360px) {
+  .search-container {
+    width: 100%;
+    margin: 1rem auto;
+    padding: 1.25rem 0.75rem;
+    border-radius: 16px;
+  }
+
+  .search-row {
+    gap: 0.5rem;
+  }
+
+  .search-field label {
+    font-size: 0.7rem;
+    margin-bottom: 0.5rem;
   }
 
   .search-input {
     padding: 14px 14px 14px 45px;
+    font-size: 0.9rem;
+    min-height: 48px;
+  }
+
+  .input-icon {
+    left: 12px;
+    font-size: 1rem;
+  }
+
+  .swap-button {
+    margin: -1rem 0;
+  }
+
+  .swap-button button {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  .search-btn {
+    padding: 14px 18px;
+    font-size: 0.9rem;
+    min-height: 48px;
+  }
+}
+
+/* Landscape phone orientation */
+@media (max-width: 768px) and (orientation: landscape) {
+  .hero-background {
+    min-height: calc(100vh - 80px);
+    padding: 15px;
+  }
+
+  .promo-badge h1 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+  }
+
+  .search-container {
+    margin: 1rem auto;
+    max-width: 600px;
+  }
+
+  .search-row {
+    gap: 1rem;
   }
 }

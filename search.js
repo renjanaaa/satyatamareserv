@@ -136,66 +136,94 @@ function showBusResults(searchData) {
 
   // Create results section with footer at the end
   const resultsHTML = `
-    <section class="search-results-section" style="padding: 100px 0 0; background: #f8f9fa; min-height: 100vh;">
-      <div class="container">
-        <!-- Search Summary -->
-        <div class="search-summary" style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); margin-bottom: 2rem;">
-          <div style="display: flex; justify-content: space-between; align-items: center;">
-            <div>
-              <h1 style="color: #00c4ff; font-size: 2rem; margin-bottom: 0.5rem;">${searchData.fromName} → ${searchData.toName}</h1>
-              <p style="color: #666; font-size: 1.1rem;">${new Date(searchData.departure).toLocaleDateString("id-ID", { weekday: "long", year: "numeric", month: "long", day: "numeric" })}</p>
-            </div>
-            <button onclick="backToSearch()" style="background: #00c4ff; color: white; padding: 12px 24px; border: none; border-radius: 8px; cursor: pointer; font-weight: 600;">← Ubah Pencarian</button>
+  <section class="search-results-section" style="padding: 100px 0 0; background: #f8f9fa; min-height: 100vh;">
+    <div class="container">
+      <!-- Search Summary -->
+      <div class="search-summary" style="background: white; padding: 1.5rem; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); margin-bottom: 2rem;">
+        <div class="summary-content-mobile" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+          <div>
+            <h1 style="color: #00c4ff; font-size: clamp(1.5rem, 4vw, 2rem); margin-bottom: 0.5rem;">${searchData.fromName} → ${searchData.toName}</h1>
+            <p style="color: #666; font-size: 1rem;">${new Date(searchData.departure).toLocaleDateString("id-ID", { weekday: "long", year: "numeric", month: "long", day: "numeric" })}</p>
           </div>
-        </div>
-
-        <!-- Results Layout -->
-        <div style="display: grid; grid-template-columns: 280px 1fr; gap: 2rem; margin-bottom: 3rem;">
-          <!-- Filters Sidebar -->
-          <aside style="background: white; border-radius: 12px; padding: 1.5rem; height: fit-content; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
-            <h3 style="color: #333; margin-bottom: 1.5rem;">Filter</h3>
-            
-            <div style="margin-bottom: 2rem;">
-              <h4 style="color: #333; margin-bottom: 1rem;">Urutkan</h4>
-              <select id="sortResults" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px;">
-                <option value="price">Harga Terendah</option>
-                <option value="departure">Keberangkatan</option>
-                <option value="rating">Rating Tertinggi</option>
-              </select>
-            </div>
-
-            <div style="margin-bottom: 2rem;">
-              <h4 style="color: #333; margin-bottom: 1rem;">Kelas Bus</h4>
-              <div style="display: flex; flex-direction: column; gap: 0.75rem;">
-                <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
-                  <input type="checkbox" value="ekonomi" class="class-filter"> Ekonomi
-                </label>
-                <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
-                  <input type="checkbox" value="bisnis" class="class-filter"> Bisnis
-                </label>
-                <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
-                  <input type="checkbox" value="eksekutif" class="class-filter"> Eksekutif
-                </label>
-              </div>
-            </div>
-          </aside>
-
-          <!-- Bus Results -->
-          <main style="background: white; border-radius: 12px; padding: 1.5rem; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid #f0f0f0;">
-              <h2 style="color: #333;">Bus Tersedia</h2>
-              <span style="color: #666;" id="busResultCount">5 bus ditemukan</span>
-            </div>
-
-            <div id="busResultsList" style="display: flex; flex-direction: column; gap: 1.5rem;">
-              <!-- Bus results will be populated here -->
-            </div>
-          </main>
+          <button onclick="backToSearch()" style="background: #00c4ff; color: white; padding: 10px 20px; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 0.9rem; white-space: nowrap;">← Ubah Pencarian</button>
         </div>
       </div>
-    </section>
-    ${footerHTML}
-  `
+
+      <!-- Results Layout -->
+      <div class="results-layout-responsive" style="display: grid; grid-template-columns: 1fr; gap: 2rem; margin-bottom: 3rem;">
+        
+        <!-- Bus Results - Show First on Mobile -->
+        <main class="results-main-mobile" style="background: white; border-radius: 12px; padding: 1.5rem; box-shadow: 0 2px 10px rgba(0,0,0,0.1); order: 1;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid #f0f0f0; flex-wrap: wrap; gap: 1rem;">
+            <h2 style="color: #333; font-size: 1.3rem; margin: 0;">Bus Tersedia</h2>
+            <span style="color: #666; font-size: 0.9rem;" id="busResultCount">5 bus ditemukan</span>
+          </div>
+
+          <div id="busResultsList" style="display: flex; flex-direction: column; gap: 1.5rem;">
+            <!-- Bus results will be populated here -->
+          </div>
+        </main>
+
+        <!-- Filters Sidebar - Show Second on Mobile -->
+        <aside class="filters-sidebar-mobile" style="background: white; border-radius: 12px; padding: 1.5rem; box-shadow: 0 2px 10px rgba(0,0,0,0.1); order: 2;">
+          <h3 style="color: #333; margin-bottom: 1.5rem; font-size: 1.2rem;">Filter & Urutkan</h3>
+          
+          <div style="margin-bottom: 2rem;">
+            <h4 style="color: #333; margin-bottom: 1rem; font-size: 1rem;">Urutkan</h4>
+            <select id="sortResults" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem;">
+              <option value="price">Harga Terendah</option>
+              <option value="departure">Keberangkatan</option>
+              <option value="rating">Rating Tertinggi</option>
+            </select>
+          </div>
+
+          <div style="margin-bottom: 2rem;">
+            <h4 style="color: #333; margin-bottom: 1rem; font-size: 1rem;">Kelas Bus</h4>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 0.75rem;">
+              <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer; font-size: 0.9rem;">
+                <input type="checkbox" value="ekonomi" class="class-filter" style="width: 18px; height: 18px;"> Ekonomi
+              </label>
+              <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer; font-size: 0.9rem;">
+                <input type="checkbox" value="bisnis" class="class-filter" style="width: 18px; height: 18px;"> Bisnis
+              </label>
+              <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer; font-size: 0.9rem;">
+                <input type="checkbox" value="eksekutif" class="class-filter" style="width: 18px; height: 18px;"> Eksekutif
+              </label>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+  
+  <style>
+    @media (min-width: 768px) {
+      .results-layout-responsive {
+        grid-template-columns: 280px 1fr !important;
+      }
+      .results-main-mobile {
+        order: 2 !important;
+      }
+      .filters-sidebar-mobile {
+        order: 1 !important;
+      }
+      .summary-content-mobile {
+        flex-wrap: nowrap !important;
+      }
+    }
+    
+    @media (max-width: 767px) {
+      .container {
+        padding: 0 15px !important;
+      }
+      .search-results-section {
+        padding: 90px 0 0 !important;
+      }
+    }
+  </style>
+  
+  ${footerHTML}
+`
 
   // Replace body content after header
   const header = document.querySelector(".header")
@@ -299,37 +327,67 @@ function populateBusResults() {
       "border: 2px solid #f0f0f0; border-radius: 12px; padding: 1.5rem; transition: all 0.3s ease; background: white;"
 
     busCard.innerHTML = `
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
-        <h3 style="color: #333; font-size: 1.4rem; margin: 0;">${bus.operator}</h3>
-        <span style="background: ${bus.class === "Eksekutif" ? "#00c4ff" : bus.class === "Bisnis" ? "#28a745" : "#ffc107"}; color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">${bus.class}</span>
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+        <h3 style="color: #333; font-size: clamp(1.1rem, 3vw, 1.4rem); margin: 0;">${bus.operator}</h3>
+        <span style="background: ${bus.class === "Eksekutif" ? "#00c4ff" : bus.class === "Bisnis" ? "#28a745" : "#ffc107"}; color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.8rem; white-space: nowrap;">${bus.class}</span>
       </div>
-      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr auto; gap: 2rem; align-items: center;">
+      <div class="bus-details-responsive" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; align-items: center;">
+        
+        <!-- Departure Info -->
+        <div style="text-align: center; padding: 1rem; background: #f8f9fa; border-radius: 8px;">
+          <div style="font-size: 1.3rem; font-weight: bold; color: #333; margin-bottom: 0.25rem;">${bus.departureTime}</div>
+          <div style="color: #666; font-size: 0.8rem; line-height: 1.2;">${bus.departureLocation}</div>
+        </div>
+
+        <!-- Arrival Info -->
+        <div style="text-align: center; padding: 1rem; background: #f8f9fa; border-radius: 8px;">
+          <div style="font-size: 1.3rem; font-weight: bold; color: #333; margin-bottom: 0.25rem;">${bus.arrivalTime}</div>
+          <div style="color: #666; font-size: 0.8rem; line-height: 1.2;">${bus.arrivalLocation}</div>
+        </div>
+
+        <!-- Duration & Rating -->
+        <div style="text-align: center; padding: 0.5rem;">
+          <div style="font-weight: 600; margin-bottom: 0.25rem; color: #333;">${bus.duration}</div>
+          <div style="font-size: 0.8rem; color: #666;">Langsung</div>
+        </div>
+
+        <!-- Price & Book Button -->
         <div style="text-align: center;">
-          <div style="font-size: 1.5rem; font-weight: bold; color: #333; margin-bottom: 0.25rem;">${bus.departureTime}</div>
-          <div style="color: #666; font-size: 0.9rem;">${bus.departureLocation}</div>
-        </div>
-        <div style="text-align: center; color: #666;">
-          <div style="font-weight: 600; margin-bottom: 0.25rem;">${bus.duration}</div>
-          <div style="font-size: 0.8rem;">Langsung</div>
-        </div>
-        <div style="text-align: center;">
-          <div style="font-size: 1.5rem; font-weight: bold; color: #333; margin-bottom: 0.25rem;">${bus.arrivalTime}</div>
-          <div style="color: #666; font-size: 0.9rem;">${bus.arrivalLocation}</div>
-        </div>
-        <div style="text-align: right;">
-          <div style="font-size: 1.5rem; font-weight: bold; color: #00c4ff; margin-bottom: 0.25rem;">Rp ${bus.price.toLocaleString("id-ID")}</div>
-          <div style="color: #666; font-size: 0.8rem; margin-bottom: 0.5rem;">per orang</div>
-          <div style="margin-bottom: 1rem;">⭐ ${bus.rating} • ${bus.facilities.join(" • ")}</div>
-          <button onclick="selectBus(${index})" style="background: #00c4ff; color: white; padding: 12px 24px; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;">Pilih Kursi</button>
+          <div style="font-size: 1.3rem; font-weight: bold; color: #00c4ff; margin-bottom: 0.5rem;">Rp ${bus.price.toLocaleString("id-ID")}</div>
+          <button onclick="selectBus(${index})" style="background: #00c4ff; color: white; padding: 10px 20px; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease; font-size: 0.9rem; width: 100%;">Pilih Kursi</button>
         </div>
       </div>
+      
+      <!-- Facilities & Rating - Full Width -->
+      <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #f0f0f0; text-align: center;">
+        <div style="margin-bottom: 0.5rem; color: #333;">⭐ ${bus.rating}</div>
+        <div style="font-size: 0.8rem; color: #666; line-height: 1.3;">${bus.facilities.join(" • ")}</div>
+      </div>
+      
+      <style>
+        @media (min-width: 768px) {
+          .bus-details-responsive {
+            grid-template-columns: 1fr 1fr 1fr auto !important;
+            gap: 2rem !important;
+          }
+          .bus-details-responsive > div:nth-child(1),
+          .bus-details-responsive > div:nth-child(2) {
+            background: transparent !important;
+            padding: 0 !important;
+          }
+          .bus-details-responsive > div:nth-child(4) button {
+            width: auto !important;
+            padding: 12px 24px !important;
+          }
+        }
+      </style>
     `
 
     // Add hover effects
     busCard.addEventListener("mouseenter", () => {
       busCard.style.borderColor = "#00c4ff"
-      busCard.style.transform = "translateY(-5px)"
-      busCard.style.boxShadow = "0 10px 30px rgba(0, 196, 255, 0.2)"
+      busCard.style.transform = "translateY(-2px)"
+      busCard.style.boxShadow = "0 8px 25px rgba(0, 196, 255, 0.15)"
     })
 
     busCard.addEventListener("mouseleave", () => {

@@ -1,0 +1,1853 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Syarat & Ketentuan - Satyatama Transport</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Interactive Terms & Conditions Styles - Embedded */
+        
+        /* Hero Section */
+        .terms-hero {
+          background: linear-gradient(135deg, #00c4ff 0%, #0099cc 100%);
+          padding: 120px 0 80px; /* TAMBAH JARAK dari header - dari 90px ke 120px */
+          position: relative;
+          overflow: hidden;
+          color: white;
+        }
+
+        .terms-hero::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.1)"/></svg>');
+          opacity: 0.3;
+        }
+
+        .hero-overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-content {
+          text-align: center;
+          position: relative;
+          z-index: 2;
+        }
+
+        .hero-icon {
+          font-size: 4rem;
+          margin-bottom: 1rem;
+          display: inline-block;
+          animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+          0%, 20%, 50%, 80%, 100% {
+            transform: translateY(0);
+          }
+          40% {
+            transform: translateY(-10px);
+          }
+          60% {
+            transform: translateY(-5px);
+          }
+        }
+
+        .hero-title {
+          font-size: 3.5rem;
+          font-weight: 800;
+          margin-bottom: 1rem;
+          text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-subtitle {
+          font-size: 1.3rem;
+          margin-bottom: 3rem;
+          opacity: 0.9;
+        }
+
+        .hero-stats {
+          display: flex;
+          justify-content: center;
+          gap: 3rem;
+        }
+
+        .stat-item {
+          text-align: center;
+        }
+
+        .stat-number {
+          display: block;
+          font-size: 2.5rem;
+          font-weight: 800;
+          margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+          font-size: 1rem;
+          opacity: 0.8;
+        }
+
+        /* Interactive Terms Section */
+        .interactive-terms {
+          padding: 4rem 0;
+          background: #f8f9fa;
+        }
+
+        .interactive-terms .container {
+          display: grid;
+          grid-template-columns: 400px 1fr;
+          gap: 3rem;
+          max-width: 1400px;
+        }
+
+        /* Navigation Menu */
+        .terms-navigation {
+          background: white;
+          border-radius: 20px;
+          padding: 2rem;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+          height: fit-content;
+          position: sticky;
+          top: 100px; /* SESUAIKAN dengan padding hero yang baru */
+        }
+
+        .nav-item {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+          padding: 1.5rem;
+          margin-bottom: 1rem;
+          border-radius: 15px;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          border: 2px solid transparent;
+          position: relative;
+        }
+
+        .nav-item:hover {
+          background: #f8f9fa;
+          transform: translateX(5px);
+        }
+
+        .nav-item.active {
+          background: linear-gradient(135deg, #00c4ff, #0099cc) !important;
+          color: white !important;
+          transform: translateX(10px);
+          box-shadow: 0 8px 25px rgba(0, 196, 255, 0.3);
+        }
+
+        .nav-item.active * {
+          color: white !important;
+        }
+
+        .nav-icon {
+          font-size: 2rem;
+          flex-shrink: 0;
+        }
+
+        .nav-content {
+          flex: 1;
+        }
+
+        .nav-content h3 {
+          font-size: 1.2rem;
+          font-weight: 600;
+          margin-bottom: 0.25rem;
+        }
+
+        .nav-content p {
+          font-size: 0.9rem;
+          opacity: 0.8;
+          margin: 0;
+        }
+
+        .nav-arrow {
+          font-size: 1.5rem;
+          opacity: 0.5;
+          transition: all 0.3s ease;
+        }
+
+        .nav-item.active .nav-arrow {
+          opacity: 1;
+          transform: translateX(5px);
+        }
+
+        /* Content Area */
+        .terms-content-area {
+          position: relative;
+          min-height: 600px;
+        }
+
+        .content-panel {
+          background: white;
+          border-radius: 20px;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+          opacity: 0;
+          transform: translateY(30px);
+          transition: all 0.4s ease;
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          pointer-events: none;
+        }
+
+        .content-panel.active {
+          opacity: 1 !important;
+          transform: translateY(0) !important;
+          position: relative !important;
+          pointer-events: all !important;
+        }
+
+        .panel-header {
+          background: linear-gradient(135deg, #00c4ff, #0099cc);
+          color: white;
+          padding: 2.5rem;
+          border-radius: 20px 20px 0 0;
+          display: flex;
+          align-items: center;
+          gap: 1.5rem;
+        }
+
+        .panel-icon {
+          font-size: 3rem;
+          opacity: 0.9;
+        }
+
+        .panel-title h2 {
+          font-size: 2rem;
+          font-weight: 700;
+          margin-bottom: 0.5rem;
+        }
+
+        .panel-title p {
+          opacity: 0.9;
+          font-size: 1.1rem;
+        }
+
+        .panel-body {
+          padding: 3rem;
+        }
+
+        /* Feature Cards */
+        .feature-cards {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          gap: 2rem;
+          margin-bottom: 3rem;
+        }
+
+        .feature-card {
+          background: #f8f9fa;
+          border-radius: 15px;
+          padding: 2rem;
+          border: 2px solid #e9ecef;
+          transition: all 0.3s ease;
+          position: relative;
+        }
+
+        .feature-card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-card.highlight {
+          background: linear-gradient(135deg, #e8f5e8, #f0f8f0);
+          border-color: #4caf50;
+        }
+
+        .feature-icon {
+          font-size: 2.5rem;
+          margin-bottom: 1rem;
+        }
+
+        .feature-content h4 {
+          font-size: 1.3rem;
+          font-weight: 600;
+          margin-bottom: 0.5rem;
+          color: #333;
+        }
+
+        .feature-content p {
+          color: #666;
+          margin-bottom: 1rem;
+        }
+
+        .feature-badge {
+          background: #4caf50;
+          color: white;
+          padding: 0.25rem 0.75rem;
+          border-radius: 15px;
+          font-size: 0.8rem;
+          font-weight: 600;
+          position: absolute;
+          top: 1rem;
+          right: 1rem;
+        }
+
+        .price-info {
+          background: white;
+          padding: 0.75rem;
+          border-radius: 8px;
+          border: 1px solid #ddd;
+        }
+
+        .price {
+          font-weight: 600;
+          color: #00c4ff;
+        }
+
+        /* Info Section */
+        .info-section {
+          background: #f8f9fa;
+          border-radius: 15px;
+          padding: 2rem;
+          margin-bottom: 2rem;
+        }
+
+        .info-section h4 {
+          color: #333;
+          margin-bottom: 1.5rem;
+          font-size: 1.3rem;
+        }
+
+        .info-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+          gap: 1rem;
+        }
+
+        .info-item {
+          background: white;
+          padding: 1rem;
+          border-radius: 10px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          border: 1px solid #e9ecef;
+        }
+
+        .info-label {
+          color: #666;
+          font-size: 0.9rem;
+        }
+
+        .info-value {
+          font-weight: 600;
+          color: #00c4ff;
+        }
+
+        /* Warning Section */
+        .warning-section {
+          background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+          border: 2px solid #ffc107;
+          border-radius: 15px;
+          padding: 2rem;
+        }
+
+        .warning-header {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+          margin-bottom: 1.5rem;
+        }
+
+        .warning-icon {
+          font-size: 2rem;
+          color: #f57c00;
+        }
+
+        .warning-header h4 {
+          color: #f57c00;
+          font-size: 1.3rem;
+        }
+
+        .prohibited-list {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 1rem;
+        }
+
+        .prohibited-item {
+          background: white;
+          padding: 0.5rem 1rem;
+          border-radius: 20px;
+          font-size: 0.9rem;
+          border: 1px solid #ffc107;
+        }
+
+        /* Timeline Styles */
+        .timeline-section {
+          margin-bottom: 3rem;
+        }
+
+        .timeline {
+          position: relative;
+          padding-left: 2rem;
+        }
+
+        .timeline::before {
+          content: '';
+          position: absolute;
+          left: 1rem;
+          top: 0;
+          bottom: 0;
+          width: 2px;
+          background: #00c4ff;
+        }
+
+        .timeline-item {
+          position: relative;
+          margin-bottom: 2rem;
+        }
+
+        .timeline-dot {
+          position: absolute;
+          left: -2rem;
+          top: 0.5rem;
+          width: 1rem;
+          height: 1rem;
+          background: #00c4ff;
+          border-radius: 50%;
+          border: 3px solid white;
+          box-shadow: 0 0 0 3px #00c4ff;
+        }
+
+        .timeline-content h5 {
+          font-size: 1.2rem;
+          font-weight: 600;
+          color: #333;
+          margin-bottom: 0.5rem;
+        }
+
+        .timeline-content p {
+          color: #666;
+        }
+
+        /* Refund Section */
+        .refund-section {
+          margin-bottom: 3rem;
+        }
+
+        .refund-cards {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+          gap: 1.5rem;
+        }
+
+        .refund-card {
+          background: white;
+          border-radius: 15px;
+          padding: 2rem;
+          text-align: center;
+          border: 2px solid #e9ecef;
+          transition: all 0.3s ease;
+        }
+
+        .refund-card.good {
+          border-color: #4caf50;
+          background: linear-gradient(135deg, #e8f5e8, #f0f8f0);
+        }
+
+        .refund-card.medium {
+          border-color: #ff9800;
+          background: linear-gradient(135deg, #fff3e0, #ffeaa7);
+        }
+
+        .refund-card.bad {
+          border-color: #f44336;
+          background: linear-gradient(135deg, #ffebee, #ffcdd2);
+        }
+
+        .refund-time {
+          font-size: 1.1rem;
+          font-weight: 600;
+          margin-bottom: 0.5rem;
+        }
+
+        .refund-percent {
+          font-size: 1.5rem;
+          font-weight: 800;
+          margin-bottom: 0.5rem;
+        }
+
+        .refund-card.good .refund-percent {
+          color: #4caf50;
+        }
+
+        .refund-card.medium .refund-percent {
+          color: #ff9800;
+        }
+
+        .refund-card.bad .refund-percent {
+          color: #f44336;
+        }
+
+        .refund-desc {
+          font-size: 0.9rem;
+          opacity: 0.8;
+        }
+
+        /* Baggage Specs */
+        .baggage-specs {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+          gap: 2rem;
+          margin-bottom: 3rem;
+        }
+
+        .spec-card {
+          background: white;
+          border-radius: 15px;
+          padding: 2rem;
+          text-align: center;
+          border: 2px solid #e9ecef;
+          transition: all 0.3s ease;
+        }
+
+        .spec-card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .spec-icon {
+          font-size: 2.5rem;
+          margin-bottom: 1rem;
+        }
+
+        .spec-title {
+          font-size: 1.1rem;
+          font-weight: 600;
+          margin-bottom: 0.5rem;
+          color: #333;
+        }
+
+        .spec-value {
+          font-size: 1.8rem;
+          font-weight: 800;
+          color: #00c4ff;
+          margin-bottom: 0.5rem;
+        }
+
+        .spec-desc {
+          font-size: 0.9rem;
+          opacity: 0.8;
+        }
+
+        /* Prohibited Section */
+        .prohibited-section {
+          margin-bottom: 3rem;
+        }
+
+        .prohibited-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+          gap: 1rem;
+        }
+
+        .prohibited-card {
+          background: white;
+          border: 2px solid #f44336;
+          border-radius: 15px;
+          padding: 1.5rem;
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+          transition: all 0.3s ease;
+        }
+
+        .prohibited-card:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 8px 20px rgba(244, 67, 54, 0.2);
+        }
+
+        .prohibited-emoji {
+          font-size: 2rem;
+        }
+
+        .prohibited-text {
+          font-weight: 600;
+          color: #333;
+        }
+
+        /* Rules Section */
+        .rules-section {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 2rem;
+          margin-bottom: 3rem;
+        }
+
+        .rules-column {
+          background: white;
+          border-radius: 15px;
+          padding: 2rem;
+          border: 2px solid #e9ecef;
+        }
+
+        .rules-column.do {
+          border-color: #4caf50;
+          background: linear-gradient(135deg, #e8f5e8, #f0f8f0);
+        }
+
+        .rules-column.dont {
+          border-color: #f44336;
+          background: linear-gradient(135deg, #ffebee, #ffcdd2);
+        }
+
+        .rules-column h4 {
+          margin-bottom: 1.5rem;
+          font-size: 1.3rem;
+        }
+
+        .rule-items {
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+        }
+
+        .rule-item {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+          padding: 1rem;
+          background: white;
+          border-radius: 10px;
+          border: 1px solid #e9ecef;
+        }
+
+        .rule-icon {
+          font-size: 1.5rem;
+          flex-shrink: 0;
+        }
+
+        .rule-text {
+          font-weight: 500;
+          color: #333;
+        }
+
+        /* Tips Section */
+        .tips-section {
+          margin-bottom: 3rem;
+        }
+
+        .tips-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+          gap: 1rem;
+        }
+
+        .tip-card {
+          background: white;
+          border: 2px solid #00c4ff;
+          border-radius: 15px;
+          padding: 1.5rem;
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+          transition: all 0.3s ease;
+        }
+
+        .tip-card:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 8px 20px rgba(0, 196, 255, 0.2);
+        }
+
+        .tip-icon {
+          font-size: 2rem;
+        }
+
+        .tip-text {
+          font-weight: 600;
+          color: #333;
+        }
+
+        /* Steps Section */
+        .steps-section {
+          margin-bottom: 3rem;
+        }
+
+        .steps-container {
+          display: flex;
+          flex-direction: column;
+          gap: 1.5rem;
+        }
+
+        .step-item {
+          display: flex;
+          align-items: flex-start;
+          gap: 1.5rem;
+          background: white;
+          border-radius: 15px;
+          padding: 2rem;
+          border: 2px solid #e9ecef;
+          transition: all 0.3s ease;
+        }
+
+        .step-item:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .step-number {
+          background: #00c4ff;
+          color: white;
+          width: 3rem;
+          height: 3rem;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 1.5rem;
+          font-weight: 800;
+          flex-shrink: 0;
+        }
+
+        .step-content h5 {
+          font-size: 1.3rem;
+          font-weight: 600;
+          margin-bottom: 0.5rem;
+          color: #333;
+        }
+
+        .step-content p {
+          color: #666;
+          line-height: 1.6;
+        }
+
+        /* Important Note */
+        .important-note {
+          background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+          border: 2px solid #ffc107;
+          border-radius: 15px;
+          padding: 2rem;
+          display: flex;
+          align-items: flex-start;
+          gap: 1.5rem;
+        }
+
+        .note-icon {
+          font-size: 2.5rem;
+          color: #f57c00;
+          flex-shrink: 0;
+        }
+
+        .note-content h4 {
+          color: #f57c00;
+          font-size: 1.3rem;
+          margin-bottom: 0.5rem;
+        }
+
+        .note-content p {
+          color: #333;
+          line-height: 1.6;
+        }
+
+        /* Responsibility Section */
+        .responsibility-section {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 2rem;
+          margin-bottom: 3rem;
+        }
+
+        .resp-card {
+          background: white;
+          border-radius: 15px;
+          padding: 2rem;
+          border: 2px solid #e9ecef;
+          transition: all 0.3s ease;
+        }
+
+        .resp-card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .resp-card.passenger {
+          border-color: #00c4ff;
+          background: linear-gradient(135deg, #e3f2fd, #f0f8ff);
+        }
+
+        .resp-card.operator {
+          border-color: #4caf50;
+          background: linear-gradient(135deg, #e8f5e8, #f0f8f0);
+        }
+
+        .resp-header {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+          margin-bottom: 1.5rem;
+        }
+
+        .resp-icon {
+          font-size: 2rem;
+        }
+
+        .resp-header h4 {
+          font-size: 1.3rem;
+          font-weight: 600;
+          color: #333;
+        }
+
+        .resp-items {
+          display: flex;
+          flex-direction: column;
+          gap: 0.75rem;
+        }
+
+        .resp-item {
+          display: flex;
+          align-items: flex-start;
+          gap: 0.75rem;
+        }
+
+        .resp-bullet {
+          color: #00c4ff;
+          font-weight: 800;
+          font-size: 1.2rem;
+          flex-shrink: 0;
+        }
+
+        .resp-item span:last-child {
+          color: #333;
+          line-height: 1.5;
+        }
+
+        /* Insurance Section */
+        .insurance-section {
+          margin-bottom: 3rem;
+        }
+
+        .insurance-card {
+          background: linear-gradient(135deg, #e8f5e8, #f0f8f0);
+          border: 2px solid #4caf50;
+          border-radius: 15px;
+          padding: 2rem;
+          display: flex;
+          align-items: flex-start;
+          gap: 1.5rem;
+        }
+
+        .insurance-icon {
+          font-size: 2.5rem;
+          color: #4caf50;
+          flex-shrink: 0;
+        }
+
+        .insurance-content h4 {
+          color: #4caf50;
+          font-size: 1.3rem;
+          margin-bottom: 0.5rem;
+        }
+
+        .insurance-content p {
+          color: #333;
+          line-height: 1.6;
+        }
+
+        /* Contact Section */
+        .contact-section {
+          margin-top: 4rem;
+        }
+
+        .contact-card {
+          background: linear-gradient(135deg, #00c4ff, #0099cc);
+          color: white;
+          border-radius: 20px;
+          padding: 3rem;
+          text-align: center;
+        }
+
+        .contact-header {
+          margin-bottom: 2rem;
+        }
+
+        .contact-icon {
+          font-size: 3rem;
+          margin-bottom: 1rem;
+        }
+
+        .contact-header h3 {
+          font-size: 2rem;
+          font-weight: 700;
+          margin-bottom: 0.5rem;
+        }
+
+        .contact-header p {
+          opacity: 0.9;
+          font-size: 1.1rem;
+        }
+
+        .contact-info {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          gap: 1.5rem;
+        }
+
+        .contact-item {
+          background: rgba(255, 255, 255, 0.1);
+          border-radius: 15px;
+          padding: 1.5rem;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        .contact-label {
+          font-weight: 500;
+          opacity: 0.9;
+        }
+
+        .contact-value {
+          font-weight: 700;
+          font-size: 1.1rem;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 1024px) {
+          .interactive-terms .container {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+          }
+
+          .terms-navigation {
+            position: static;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            padding: 1.5rem;
+          }
+
+          .nav-item {
+            margin-bottom: 0;
+          }
+
+          .responsibility-section {
+            grid-template-columns: 1fr;
+          }
+
+          .rules-section {
+            grid-template-columns: 1fr;
+          }
+        }
+
+        @media (max-width: 768px) {
+          .hero-title {
+            font-size: 2.5rem;
+          }
+
+          .hero-subtitle {
+            font-size: 1.1rem;
+          }
+
+          .hero-stats {
+            flex-direction: column;
+            gap: 1.5rem;
+          }
+
+          .terms-navigation {
+            grid-template-columns: 1fr;
+          }
+
+          .panel-header {
+            flex-direction: column;
+            text-align: center;
+            gap: 1rem;
+          }
+
+          .panel-icon {
+            font-size: 2.5rem;
+          }
+
+          .panel-title h2 {
+            font-size: 1.5rem;
+          }
+
+          .panel-body {
+            padding: 2rem;
+          }
+
+          .feature-cards {
+            grid-template-columns: 1fr;
+          }
+
+          .baggage-specs {
+            grid-template-columns: 1fr;
+          }
+
+          .refund-cards {
+            grid-template-columns: 1fr;
+          }
+
+          .prohibited-grid {
+            grid-template-columns: 1fr;
+          }
+
+          .tips-grid {
+            grid-template-columns: 1fr;
+          }
+
+          .contact-info {
+            grid-template-columns: 1fr;
+          }
+        }
+
+        /* FORCE HEADER TO MATCH style.css EXACTLY */
+        .header {
+          background: white !important;
+          box-shadow: 0 2px 10px rgba(0, 196, 255, 0.2) !important;
+          position: fixed !important;
+          width: 100% !important;
+          top: 0 !important;
+          z-index: 1000 !important;
+        }
+
+        .navbar {
+          padding: 0.6rem 0 !important;
+        }
+
+        .nav-container {
+          max-width: 1200px !important;
+          margin: 0 auto !important;
+          padding: 0 20px !important;
+          display: flex !important;
+          justify-content: space-between !important;
+          align-items: center !important;
+        }
+
+        .logo-img {
+          height: 60px !important;
+          width: auto !important;
+          max-width: 300px !important;
+          object-fit: contain !important;
+        }
+
+        /* Mobile responsive header */
+        @media (max-width: 768px) {
+          .logo-img {
+            height: 50px !important;
+          }
+          
+          .navbar {
+            padding: 0.6rem 0 !important;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .logo-img {
+            height: 40px !important;
+          }
+        }
+
+        /* PROPER SPACING AND LAYOUT */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Ensure proper spacing between sections */
+        body {
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        /* Add margin to main content sections */
+        .interactive-terms {
+            margin-top: 0;
+        }
+
+        .terms-navigation {
+            margin-bottom: 2rem;
+        }
+
+        .content-panel {
+            margin-bottom: 2rem;
+        }
+
+        /* Fix hero section spacing */
+        .terms-hero {
+            margin-top: 0;
+            padding-top: 120px;
+        }
+
+        /* Add proper spacing to navigation items */
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 2rem;
+        }
+
+        .nav-menu .nav-item {
+            margin: 0;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            background: #f8f9fa;
+            color: #00c4ff;
+        }
+
+        .nav-link.active {
+            background: #00c4ff;
+            color: white;
+        }
+
+        /* Mobile menu styles */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .hamburger .bar {
+            width: 25px;
+            height: 3px;
+            background: #333;
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background-color: white;
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+                padding: 2rem 0;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+        }
+
+        /* Footer Styles */
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 3rem 0 1rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            color: #00c4ff;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-logo-img {
+            height: 40px !important; /* Dari 60px ke 40px */
+            width: auto !important;
+            margin-bottom: 1rem !important;
+        }
+
+        .footer-description {
+            color: #bdc3c7;
+            line-height: 1.6;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #00c4ff;
+        }
+
+        .footer-contact p {
+            margin-bottom: 0.5rem;
+            color: #bdc3c7;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-icon-small {
+            font-size: 1rem;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #34495e;
+            padding-top: 1rem;
+            text-align: center;
+            color: #95a5a6;
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <img src="logo.svg" alt="Satyatama Transport Logo" class="logo-img">
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="rules.html" class="nav-link active">Syarat dan Ketentuan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="akun.html" class="nav-link">Akun</a>
+                    </li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Hero Header -->
+    <section class="terms-hero">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-icon">📋</div>
+                <h1 class="hero-title">Syarat & Ketentuan</h1>
+                <p class="hero-subtitle">Pilih kategori untuk melihat ketentuan yang berlaku</p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Keamanan</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">Support</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">15+</span>
+                        <span class="stat-label">Rute</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Terms Content -->
+    <section class="interactive-terms">
+        <div class="container">
+            
+            <!-- Navigation Menu -->
+            <div class="terms-navigation">
+                <div class="nav-item active" data-target="shuttle">
+                    <div class="nav-icon">🚐</div>
+                    <div class="nav-content">
+                        <h3>Layanan Shuttle</h3>
+                        <p>Kemudahan transportasi dari dan ke terminal</p>
+                    </div>
+                    <div class="nav-arrow">→</div>
+                </div>
+
+                <div class="nav-item" data-target="tiket">
+                    <div class="nav-icon">🎫</div>
+                    <div class="nav-content">
+                        <h3>Kebijakan Tiket</h3>
+                        <p>Aturan pembelian, pembatalan, dan perubahan tiket</p>
+                    </div>
+                    <div class="nav-arrow">→</div>
+                </div>
+
+                <div class="nav-item" data-target="bagasi">
+                    <div class="nav-icon">🧳</div>
+                    <div class="nav-content">
+                        <h3>Kebijakan Bagasi</h3>
+                        <p>Aturan dan batasan untuk barang bawaan</p>
+                    </div>
+                    <div class="nav-arrow">→</div>
+                </div>
+
+                <div class="nav-item" data-target="perjalanan">
+                    <div class="nav-icon">🚌</div>
+                    <div class="nav-content">
+                        <h3>Selama Perjalanan</h3>
+                        <p>Aturan dan etika selama di dalam bus</p>
+                    </div>
+                    <div class="nav-arrow">→</div>
+                </div>
+
+                <div class="nav-item" data-target="keberangkatan">
+                    <div class="nav-icon">⏰</div>
+                    <div class="nav-content">
+                        <h3>Keberangkatan</h3>
+                        <p>Waktu dan prosedur keberangkatan</p>
+                    </div>
+                    <div class="nav-arrow">→</div>
+                </div>
+
+                <div class="nav-item" data-target="tanggung-jawab">
+                    <div class="nav-icon">⚖️</div>
+                    <div class="nav-content">
+                        <h3>Tanggung Jawab</h3>
+                        <p>Hak dan kewajiban penumpang serta operator</p>
+                    </div>
+                    <div class="nav-arrow">→</div>
+                </div>
+            </div>
+
+            <!-- Content Area -->
+            <div class="terms-content-area">
+                
+                <!-- Layanan Shuttle Content -->
+                <div class="content-panel active" id="shuttle">
+                    <div class="panel-header">
+                        <div class="panel-icon">🚐</div>
+                        <div class="panel-title">
+                            <h2>Layanan Shuttle</h2>
+                            <p>Kemudahan transportasi dari dan ke terminal</p>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="feature-cards">
+                            <div class="feature-card highlight">
+                                <div class="feature-icon">🆓</div>
+                                <div class="feature-content">
+                                    <h4>Free Shuttle Jember Kota</h4>
+                                    <p>Gratis antar-jemput untuk area Jember Kota</p>
+                                    <div class="feature-badge">GRATIS</div>
+                                </div>
+                            </div>
+                            <div class="feature-card">
+                                <div class="feature-icon">💰</div>
+                                <div class="feature-content">
+                                    <h4>Shuttle Bondowoso</h4>
+                                    <p>Tarif khusus untuk area Bondowoso</p>
+                                    <div class="price-info">
+                                        <span class="price">Rp 20.000 - Rp 40.000</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="info-section">
+                            <h4>📦 Ketentuan Bagasi</h4>
+                            <div class="info-grid">
+                                <div class="info-item">
+                                    <span class="info-label">Berat Maksimal</span>
+                                    <span class="info-value">30 KG</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Dimensi Maksimal</span>
+                                    <span class="info-value">60×40×30 cm</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Biaya Kelebihan</span>
+                                    <span class="info-value">Rp 5.000/kg</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="warning-section">
+                            <div class="warning-header">
+                                <span class="warning-icon">⚠️</span>
+                                <h4>Barang yang Tidak Diperbolehkan</h4>
+                            </div>
+                            <div class="prohibited-list">
+                                <span class="prohibited-item">🦨 Benda Berbau Menyengat</span>
+                                <span class="prohibited-item">🐕 Hewan Peliharaan</span>
+                                <span class="prohibited-item">💊 Narkotika & Obat Terlarang</span>
+                                <span class="prohibited-item">🔥 Bahan Mudah Terbakar</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kebijakan Tiket Content -->
+                <div class="content-panel" id="tiket">
+                    <div class="panel-header">
+                        <div class="panel-icon">🎫</div>
+                        <div class="panel-title">
+                            <h2>Kebijakan Tiket</h2>
+                            <p>Aturan pembelian, pembatalan, dan perubahan tiket</p>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="timeline-section">
+                            <h4>⏰ Timeline Penting</h4>
+                            <div class="timeline">
+                                <div class="timeline-item">
+                                    <div class="timeline-dot"></div>
+                                    <div class="timeline-content">
+                                        <h5>30 Menit Sebelum</h5>
+                                        <p>Wajib hadir di terminal untuk check-in</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-dot"></div>
+                                    <div class="timeline-content">
+                                        <h5>24 Jam Sebelum</h5>
+                                        <p>Batas reschedule dengan biaya admin Rp 25.000</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="refund-section">
+                            <h4>💸 Kebijakan Refund</h4>
+                            <div class="refund-cards">
+                                <div class="refund-card good">
+                                    <div class="refund-time">24+ Jam</div>
+                                    <div class="refund-percent">75% Refund</div>
+                                    <div class="refund-desc">Sebelum keberangkatan</div>
+                                </div>
+                                <div class="refund-card medium">
+                                    <div class="refund-time">12-24 Jam</div>
+                                    <div class="refund-percent">50% Refund</div>
+                                    <div class="refund-desc">Sebelum keberangkatan</div>
+                                </div>
+                                <div class="refund-card bad">
+                                    <div class="refund-time">< 12 Jam</div>
+                                    <div class="refund-percent">No Refund</div>
+                                    <div class="refund-desc">Tidak ada pengembalian</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kebijakan Bagasi Content -->
+                <div class="content-panel" id="bagasi">
+                    <div class="panel-header">
+                        <div class="panel-icon">🧳</div>
+                        <div class="panel-title">
+                            <h2>Kebijakan Bagasi</h2>
+                            <p>Aturan dan batasan untuk barang bawaan</p>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="baggage-specs">
+                            <div class="spec-card">
+                                <div class="spec-icon">⚖️</div>
+                                <div class="spec-title">Berat Maksimal</div>
+                                <div class="spec-value">30 KG</div>
+                                <div class="spec-desc">per penumpang</div>
+                            </div>
+                            <div class="spec-card">
+                                <div class="spec-icon">📏</div>
+                                <div class="spec-title">Dimensi Maksimal</div>
+                                <div class="spec-value">60×40×30</div>
+                                <div class="spec-desc">cm (P×L×T)</div>
+                            </div>
+                            <div class="spec-card">
+                                <div class="spec-icon">💰</div>
+                                <div class="spec-title">Biaya Kelebihan</div>
+                                <div class="spec-value">Rp 5.000</div>
+                                <div class="spec-desc">per kg</div>
+                            </div>
+                        </div>
+
+                        <div class="prohibited-section">
+                            <h4>🚫 Barang Terlarang</h4>
+                            <div class="prohibited-grid">
+                                <div class="prohibited-card">
+                                    <span class="prohibited-emoji">🦨</span>
+                                    <span class="prohibited-text">Benda Berbau Menyengat</span>
+                                </div>
+                                <div class="prohibited-card">
+                                    <span class="prohibited-emoji">🐕</span>
+                                    <span class="prohibited-text">Hewan Peliharaan</span>
+                                </div>
+                                <div class="prohibited-card">
+                                    <span class="prohibited-emoji">💊</span>
+                                    <span class="prohibited-text">Narkotika & Obat Terlarang</span>
+                                </div>
+                                <div class="prohibited-card">
+                                    <span class="prohibited-emoji">🔥</span>
+                                    <span class="prohibited-text">Bahan Mudah Terbakar</span>
+                                </div>
+                                <div class="prohibited-card">
+                                    <span class="prohibited-emoji">🔪</span>
+                                    <span class="prohibited-text">Senjata Tajam</span>
+                                </div>
+                                <div class="prohibited-card">
+                                    <span class="prohibited-emoji">💣</span>
+                                    <span class="prohibited-text">Bahan Peledak</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Selama Perjalanan Content -->
+                <div class="content-panel" id="perjalanan">
+                    <div class="panel-header">
+                        <div class="panel-icon">🚌</div>
+                        <div class="panel-title">
+                            <h2>Selama Perjalanan</h2>
+                            <p>Aturan dan etika selama di dalam bus</p>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="rules-section">
+                            <div class="rules-column do">
+                                <h4>✅ Yang Harus Dilakukan</h4>
+                                <div class="rule-items">
+                                    <div class="rule-item">
+                                        <span class="rule-icon">🔒</span>
+                                        <span class="rule-text">Gunakan sabuk pengaman</span>
+                                    </div>
+                                    <div class="rule-item">
+                                        <span class="rule-icon">🧹</span>
+                                        <span class="rule-text">Jaga kebersihan bus</span>
+                                    </div>
+                                    <div class="rule-item">
+                                        <span class="rule-icon">👨‍✈️</span>
+                                        <span class="rule-text">Patuhi instruksi crew</span>
+                                    </div>
+                                    <div class="rule-item">
+                                        <span class="rule-icon">💎</span>
+                                        <span class="rule-text">Simpan barang berharga</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rules-column dont">
+                                <h4>❌ Yang Tidak Boleh</h4>
+                                <div class="rule-items">
+                                    <div class="rule-item">
+                                        <span class="rule-icon">🚭</span>
+                                        <span class="rule-text">Merokok di dalam bus</span>
+                                    </div>
+                                    <div class="rule-item">
+                                        <span class="rule-icon">🔊</span>
+                                        <span class="rule-text">Membuat keributan</span>
+                                    </div>
+                                    <div class="rule-item">
+                                        <span class="rule-icon">🍺</span>
+                                        <span class="rule-text">Minum alkohol</span>
+                                    </div>
+                                    <div class="rule-item">
+                                        <span class="rule-icon">💥</span>
+                                        <span class="rule-text">Merusak fasilitas</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tips-section">
+                            <h4>💡 Tips Perjalanan Nyaman</h4>
+                            <div class="tips-grid">
+                                <div class="tip-card">
+                                    <span class="tip-icon">🎧</span>
+                                    <span class="tip-text">Gunakan headphone</span>
+                                </div>
+                                <div class="tip-card">
+                                    <span class="tip-icon">🧊</span>
+                                    <span class="tip-text">Bawa air minum</span>
+                                </div>
+                                <div class="tip-card">
+                                    <span class="tip-icon">🧥</span>
+                                    <span class="tip-text">Siapkan jaket</span>
+                                </div>
+                                <div class="tip-card">
+                                    <span class="tip-icon">📱</span>
+                                    <span class="tip-text">Charge gadget</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Keberangkatan Content -->
+                <div class="content-panel" id="keberangkatan">
+                    <div class="panel-header">
+                        <div class="panel-icon">⏰</div>
+                        <div class="panel-title">
+                            <h2>Kebijakan Keberangkatan</h2>
+                            <p>Waktu dan prosedur keberangkatan</p>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="steps-section">
+                            <h4>📋 Langkah-langkah Check-in</h4>
+                            <div class="steps-container">
+                                <div class="step-item">
+                                    <div class="step-number">1</div>
+                                    <div class="step-content">
+                                        <h5>Tiba di Terminal</h5>
+                                        <p>30 menit sebelum jadwal keberangkatan</p>
+                                    </div>
+                                </div>
+                                <div class="step-item">
+                                    <div class="step-number">2</div>
+                                    <div class="step-content">
+                                        <h5>Verifikasi Tiket</h5>
+                                        <p>Tunjukkan tiket dan identitas diri</p>
+                                    </div>
+                                </div>
+                                <div class="step-item">
+                                    <div class="step-number">3</div>
+                                    <div class="step-content">
+                                        <h5>Boarding</h5>
+                                        <p>Naik bus sesuai nomor kursi</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="important-note">
+                            <div class="note-icon">⚠️</div>
+                            <div class="note-content">
+                                <h4>Penting!</h4>
+                                <p>Bus tidak akan menunggu penumpang yang terlambat. Pastikan Anda tiba tepat waktu.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tanggung Jawab Content -->
+                <div class="content-panel" id="tanggung-jawab">
+                    <div class="panel-header">
+                        <div class="panel-icon">⚖️</div>
+                        <div class="panel-title">
+                            <h2>Tanggung Jawab</h2>
+                            <p>Hak dan kewajiban penumpang serta operator</p>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="responsibility-section">
+                            <div class="resp-card passenger">
+                                <div class="resp-header">
+                                    <span class="resp-icon">👤</span>
+                                    <h4>Tanggung Jawab Penumpang</h4>
+                                </div>
+                                <div class="resp-items">
+                                    <div class="resp-item">
+                                        <span class="resp-bullet">•</span>
+                                        <span>Menjaga barang bawaan pribadi</span>
+                                    </div>
+                                    <div class="resp-item">
+                                        <span class="resp-bullet">•</span>
+                                        <span>Mematuhi semua aturan perjalanan</span>
+                                    </div>
+                                    <div class="resp-item">
+                                        <span class="resp-bullet">•</span>
+                                        <span>Hadir tepat waktu saat keberangkatan</span>
+                                    </div>
+                                    <div class="resp-item">
+                                        <span class="resp-bullet">•</span>
+                                        <span>Melaporkan kehilangan segera</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="resp-card operator">
+                                <div class="resp-header">
+                                    <span class="resp-icon">🏢</span>
+                                    <h4>Tanggung Jawab Operator</h4>
+                                </div>
+                                <div class="resp-items">
+                                    <div class="resp-item">
+                                        <span class="resp-bullet">•</span>
+                                        <span>Menyediakan layanan sesuai standar</span>
+                                    </div>
+                                    <div class="resp-item">
+                                        <span class="resp-bullet">•</span>
+                                        <span>Menjamin keamanan perjalanan</span>
+                                    </div>
+                                    <div class="resp-item">
+                                        <span class="resp-bullet">•</span>
+                                        <span>Memberikan kompensasi keterlambatan</span>
+                                    </div>
+                                    <div class="resp-item">
+                                        <span class="resp-bullet">•</span>
+                                        <span>Menyediakan asuransi perjalanan</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="insurance-section">
+                            <div class="insurance-card">
+                                <div class="insurance-icon">🛡️</div>
+                                <div class="insurance-content">
+                                    <h4>Asuransi Perjalanan</h4>
+                                    <p>Setiap penumpang secara otomatis mendapat perlindungan asuransi perjalanan sesuai ketentuan yang berlaku.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Contact Section -->
+            <div class="contact-section">
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <div class="contact-icon">📞</div>
+                        <h3>Butuh Bantuan?</h3>
+                        <p>Tim customer service kami siap membantu Anda 24/7</p>
+                    </div>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span class="contact-label">📞 Call Center:</span>
+                            <span class="contact-value">(0331) 3080512</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-label">✉️ Email:</span>
+                            <span class="contact-value">info@satyatamatransport.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="logo.svg" alt="Satyatama Transport Logo" class="footer-logo-img">
+                    </div>
+                    <p class="footer-description">
+                        Indulge in Luxury, Embrace the Comfort
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">Bantuan</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Reservasi Tiket</a></li>
+                        <li><a href="rules.html">Syarat & Ketentuan</a></li>
+                        <li><a href="bantuan.html">Bantuan</a></li>
+                        <li><a href="kontak.html">Hubungi Kami</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">Kontak</h4>
+                    <div class="footer-contact">
+                        <p><span class="contact-icon-small">🏢</span> PT. Arkanda Pradana Aditya</p>
+                        <p><span class="contact-icon-small">📍</span> Jl. Brawijaya no.90, Mangli, Kec. Kaliwates, Jember, Jawa Timur 68131</p>
+                        <p><span class="contact-icon-small">📞</span> Call Center: (0331) 3080512</p>
+                        <p><span class="contact-icon-small">✉️</span> info@satyatamatransport.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 PT. Arkanda Pradana Aditya - Satyatama Transport. Hak Cipta Dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="search.js"></script>
+    <script>
+        // Interactive Terms Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Terms page loaded'); // Debug log
+        
+            const navItems = document.querySelectorAll('.nav-item');
+            const contentPanels = document.querySelectorAll('.content-panel');
+        
+            console.log('Found nav items:', navItems.length); // Debug log
+            console.log('Found content panels:', contentPanels.length); // Debug log
+
+            navItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    console.log('Clicked:', this.getAttribute('data-target')); // Debug log
+                
+                    const target = this.getAttribute('data-target');
+                
+                    // Remove active class from all nav items
+                    navItems.forEach(nav => nav.classList.remove('active'));
+                
+                    // Add active class to clicked nav item
+                    this.classList.add('active');
+                
+                    // Hide all content panels
+                    contentPanels.forEach(panel => {
+                        panel.classList.remove('active');
+                    });
+                
+                    // Show target content panel
+                    const targetPanel = document.getElementById(target);
+                    if (targetPanel) {
+                        setTimeout(() => {
+                            targetPanel.classList.add('active');
+                            console.log('Showing panel:', target); // Debug log
+                        }, 150);
+                    }
+                });
+            });
+
+            // Add hover effects
+            navItems.forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    if (!this.classList.contains('active')) {
+                        this.style.transform = 'translateX(10px)';
+                    }
+                });
+
+                item.addEventListener('mouseleave', function() {
+                    if (!this.classList.contains('active')) {
+                        this.style.transform = 'translateX(0)';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
