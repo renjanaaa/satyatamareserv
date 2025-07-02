@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Satyatama Transport - Booking Bus Online</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <img src="C:\File Folder\Satyatama\Web Reservasi\logo.svg?height=50&width=200" alt="Satyatama Transport Logo" class="logo-img">
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Tiket Bus Online</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Bahasa Indonesia ▼</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Tiket Anda ▼</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link profile-link">👤 ▼</a>
+                    </li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section with Search -->
+    <section class="hero-search">
+        <div class="hero-background">
+            <div class="hero-content">
+                <div class="promo-badge">
+                    <h1>NIKMATI PERJALANAN NYAMAN ANDA MULAI DARI <span class="price-highlight">300RB</span></h1>
+                </div>
+                
+                <!-- Enhanced Search Form -->
+                <div class="search-container">
+                    <form class="search-form" id="searchForm">
+                        <div class="search-row">
+                            <!-- From City -->
+                            <div class="search-field">
+                                <label for="from">DARI</label>
+                                <div class="input-wrapper">
+                                    <span class="input-icon">🏢</span>
+                                    <select id="from" class="search-input" required>
+                                        <option value="">Pilih Kota Asal</option>
+                                        <option value="jakarta">Jakarta (Semua Terminal)</option>
+                                        <option value="bandung">Bandung (Semua Terminal)</option>
+                                        <option value="surabaya">Surabaya (Semua Terminal)</option>
+                                        <option value="yogyakarta">Yogyakarta (Semua Terminal)</option>
+                                        <option value="semarang">Semarang (Semua Terminal)</option>
+                                        <option value="malang">Malang (Semua Terminal)</option>
+                                        <option value="jember">Jember (Semua Terminal)</option>
+                                        <option value="banyuwangi">Banyuwangi (Semua Terminal)</option>
+                                        <option value="denpasar">Denpasar (Semua Terminal)</option>
+                                        <option value="solo">Solo (Semua Terminal)</option>
+                                        <option value="madiun">Madiun (Semua Terminal)</option>
+                                        <option value="kediri">Kediri (Semua Terminal)</option>
+                                        <option value="blitar">Blitar (Semua Terminal)</option>
+                                        <option value="probolinggo">Probolinggo (Semua Terminal)</option>
+                                        <option value="pasuruan">Pasuruan (Semua Terminal)</option>
+                                    </select>
+                                    <span class="dropdown-arrow">▼</span>
+                                </div>
+                            </div>
+
+                            <!-- Swap Button -->
+                            <div class="swap-button">
+                                <button type="button" id="swapBtn">⇄</button>
+                            </div>
+
+                            <!-- To City -->
+                            <div class="search-field">
+                                <label for="to">KE</label>
+                                <div class="input-wrapper">
+                                    <span class="input-icon">🏢</span>
+                                    <select id="to" class="search-input" required>
+                                        <option value="">Pilih Kota Tujuan</option>
+                                        <option value="jakarta">Jakarta (Semua Terminal)</option>
+                                        <option value="bandung">Bandung (Semua Terminal)</option>
+                                        <option value="surabaya">Surabaya (Semua Terminal)</option>
+                                        <option value="yogyakarta">Yogyakarta (Semua Terminal)</option>
+                                        <option value="semarang">Semarang (Semua Terminal)</option>
+                                        <option value="malang">Malang (Semua Terminal)</option>
+                                        <option value="jember">Jember (Semua Terminal)</option>
+                                        <option value="banyuwangi">Banyuwangi (Semua Terminal)</option>
+                                        <option value="denpasar">Denpasar (Semua Terminal)</option>
+                                        <option value="solo">Solo (Semua Terminal)</option>
+                                        <option value="madiun">Madiun (Semua Terminal)</option>
+                                        <option value="kediri">Kediri (Semua Terminal)</option>
+                                        <option value="blitar">Blitar (Semua Terminal)</option>
+                                        <option value="probolinggo">Probolinggo (Semua Terminal)</option>
+                                        <option value="pasuruan">Pasuruan (Semua Terminal)</option>
+                                    </select>
+                                    <span class="dropdown-arrow">▼</span>
+                                </div>
+                            </div>
+
+                            <!-- Departure Date -->
+                            <div class="search-field">
+                                <label for="departure">TANGGAL PERGI</label>
+                                <div class="input-wrapper">
+                                    <span class="input-icon">📅</span>
+                                    <input type="date" id="departure" class="search-input" required>
+                                </div>
+                            </div>
+
+                            <!-- Return Date -->
+                            <div class="search-field">
+                                <label for="return">TANGGAL PULANG</label>
+                                <div class="input-wrapper">
+                                    <span class="input-icon">📅</span>
+                                    <input type="date" id="return" class="search-input">
+                                </div>
+                            </div>
+
+                            <!-- Search Button -->
+                            <button type="submit" class="search-btn" id="searchBtn">
+                                Cari Bus
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Routes Section -->
+    <section class="popular-routes">
+        <div class="container">
+            <div class="section-header">
+                <h2>Rute Populer</h2>
+                <p>Pilih rute favorit pelanggan kami</p>
+            </div>
+
+            <div class="routes-grid">
+                <div class="route-card" onclick="selectRoute('jember', 'jakarta')">
+                    <div class="route-info">
+                        <h3>Jember → Jakarta</h3>
+                        <p>Mulai dari <strong>Rp 510.000</strong></p>
+                        <span class="route-badge">Populer</span>
+                    </div>
+                </div>
+                <div class="route-card" onclick="selectRoute('banyuwangi', 'bandung')">
+                    <div class="route-info">
+                        <h3>Banyuwangi → Bandung</h3>
+                        <p>Mulai dari <strong>Rp 600.000</strong></p>
+                        <span class="route-badge">Terlaris</span>
+                    </div>
+                </div>
+                <div class="route-card" onclick="selectRoute('denpasar', 'bandung')">
+                    <div class="route-info">
+                        <h3>Denpasar → Bandung</h3>
+                        <p>Mulai dari <strong>Rp 850.000</strong></p>
+                        <span class="route-badge">Premium</span>
+                    </div>
+                </div>
+                <div class="route-card" onclick="selectRoute('surabaya', 'jakarta')">
+                    <div class="route-info">
+                        <h3>Surabaya → Jakarta</h3>
+                        <p>Mulai dari <strong>Rp 450.000</strong></p>
+                        <span class="route-badge">Hemat</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Promo Section -->
+    <section class="promo-section">
+        <div class="container">
+            <div class="promo-card">
+                <div class="promo-content">
+                    <h3>Diskon spesial Satyatama</h3>
+                    <div class="promo-badge-large">
+                        <div class="badge-text">KEMANA AJA</div>
+                        <div class="badge-text">NAIK 👉 SATYATAMA</div>
+                    </div>
+                    <p>Hingga 31 Desember 2025</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="C:\File Folder\Satyatama\Web Reservasi\logo.svg?height=40&width=160" alt="Satyatama Transport Logo" class="footer-logo-img">
+                    </div>
+                    <p class="footer-description">
+                        Indulge in Luxury, Embrace the Comfort
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">Layanan</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Tiket Bus</a></li>
+                        <li><a href="#">Bantuan</a></li>
+                        <li><a href="#">Syarat & Ketentuan</a></li>
+                        <li><a href="#">Kebijakan Privasi</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">Kontak</h4>
+                    <div class="footer-contact">
+                        <p>📞 Call Center: (0331) 3080512</p>
+                        <p>✉️ info@satyatamatransport.com</p>
+                        <p>📍 Jember, Jawa Timur</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Satyatama Transport. Hak Cipta Dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="search.js"></script>
+</body>
+</html>

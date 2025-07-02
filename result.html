@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hasil Pencarian Bus - Satyatama Transport</title>
+    <link rel="stylesheet" href="results.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="C:\File Folder\Satyatama\Web Reservasi\logo.svg?height=50&width=200" alt="Satyatama Transport Logo" class="logo-img">
+                    </a>
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Tiket Bus Online</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Membantu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Partner Kami</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link profile-link">👤 ▼</a>
+                    </li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Search Summary -->
+    <section class="search-summary">
+        <div class="container">
+            <div class="summary-content">
+                <div class="route-info">
+                    <h1 id="routeDisplay">Jakarta → Bandung</h1>
+                    <p id="dateDisplay">Rabu, 2 Juli 2025</p>
+                </div>
+                <div class="modify-search">
+                    <a href="index.html" class="modify-btn">Ubah Pencarian</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search Results -->
+    <section class="search-results">
+        <div class="container">
+            <div class="results-layout">
+                <!-- Filters Sidebar -->
+                <aside class="filters-sidebar">
+                    <div class="filter-section">
+                        <h3>Filter</h3>
+                        
+                        <div class="filter-group">
+                            <h4>Urutkan</h4>
+                            <select id="sortBy" class="filter-select">
+                                <option value="price">Harga Terendah</option>
+                                <option value="departure">Keberangkatan</option>
+                                <option value="duration">Durasi</option>
+                                <option value="rating">Rating Tertinggi</option>
+                            </select>
+                        </div>
+
+                        <div class="filter-group">
+                            <h4>Kelas Bus</h4>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" value="ekonomi"> Ekonomi</label>
+                                <label><input type="checkbox" value="bisnis"> Bisnis</label>
+                                <label><input type="checkbox" value="eksekutif"> Eksekutif</label>
+                            </div>
+                        </div>
+
+                        <div class="filter-group">
+                            <h4>Waktu Keberangkatan</h4>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" value="pagi"> Pagi (06:00 - 12:00)</label>
+                                <label><input type="checkbox" value="siang"> Siang (12:00 - 18:00)</label>
+                                <label><input type="checkbox" value="malam"> Malam (18:00 - 24:00)</label>
+                                <label><input type="checkbox" value="dini"> Dini Hari (00:00 - 06:00)</label>
+                            </div>
+                        </div>
+
+                        <div class="filter-group">
+                            <h4>Harga</h4>
+                            <div class="price-range">
+                                <input type="range" id="priceRange" min="100000" max="1000000" value="1000000">
+                                <div class="price-display">
+                                    <span>Rp 100.000</span>
+                                    <span id="maxPrice">Rp 1.000.000</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Bus Results -->
+                <main class="results-main">
+                    <div class="results-header">
+                        <h2>Bus Tersedia</h2>
+                        <div class="results-count">
+                            <span id="busCount">5</span> bus ditemukan
+                        </div>
+                    </div>
+
+                    <div class="bus-list" id="busList">
+                        <!-- Bus results will be populated by JavaScript -->
+                    </div>
+                </main>
+            </div>
+        </div>
+    </section>
+
+    <script src="results.js"></script>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="C:\File Folder\Satyatama\Web Reservasi\logo.svg?height=40&width=160" alt="Satyatama Transport Logo" class="footer-logo-img">
+                    </div>
+                    <p class="footer-description">
+                        Indulge in Luxury, Embrace the Comfort
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">Layanan</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Tiket Bus</a></li>
+                        <li><a href="#">Bantuan</a></li>
+                        <li><a href="#">Syarat & Ketentuan</a></li>
+                        <li><a href="#">Kebijakan Privasi</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">Kontak</h4>
+                    <div class="footer-contact">
+                        <p>📞 Call Center: (0331) 3080512</p>
+                        <p>✉️ info@satyatamatransport.com</p>
+                        <p>📍 Jember, Jawa Timur</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Satyatama Transport. Hak Cipta Dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
