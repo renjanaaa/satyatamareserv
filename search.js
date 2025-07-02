@@ -64,9 +64,6 @@ const cityNames = {
   pasuruan: "Pasuruan",
 }
 
-// Remove the redirect approach and go back to showing results on same page
-// Replace the search form submission section with this:
-
 // Search form submission - SHOW RESULTS ON SAME PAGE
 const searchForm = document.getElementById("searchForm")
 
@@ -129,9 +126,17 @@ function showBusResults(searchData) {
   if (popularRoutes) popularRoutes.style.display = "none"
   if (promoSection) promoSection.style.display = "none"
 
-  // Create results section
+  // Get footer and move it to the end
+  const footer = document.querySelector(".footer")
+  let footerHTML = ""
+  if (footer) {
+    footerHTML = footer.outerHTML
+    footer.remove()
+  }
+
+  // Create results section with footer at the end
   const resultsHTML = `
-    <section class="search-results-section" style="padding: 100px 0 40px; background: #f8f9fa; min-height: 100vh;">
+    <section class="search-results-section" style="padding: 100px 0 0; background: #f8f9fa; min-height: 100vh;">
       <div class="container">
         <!-- Search Summary -->
         <div class="search-summary" style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); margin-bottom: 2rem;">
@@ -145,7 +150,7 @@ function showBusResults(searchData) {
         </div>
 
         <!-- Results Layout -->
-        <div style="display: grid; grid-template-columns: 280px 1fr; gap: 2rem;">
+        <div style="display: grid; grid-template-columns: 280px 1fr; gap: 2rem; margin-bottom: 3rem;">
           <!-- Filters Sidebar -->
           <aside style="background: white; border-radius: 12px; padding: 1.5rem; height: fit-content; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
             <h3 style="color: #333; margin-bottom: 1.5rem;">Filter</h3>
@@ -189,10 +194,16 @@ function showBusResults(searchData) {
         </div>
       </div>
     </section>
+    ${footerHTML}
   `
 
-  // Add results to page
-  document.body.insertAdjacentHTML("beforeend", resultsHTML)
+  // Replace body content after header
+  const header = document.querySelector(".header")
+  const bodyContent = document.body.innerHTML
+  const headerHTML = header ? header.outerHTML : ""
+
+  // Clear body and add header + results + footer in correct order
+  document.body.innerHTML = headerHTML + resultsHTML
 
   // Populate bus results
   populateBusResults()
@@ -201,7 +212,12 @@ function showBusResults(searchData) {
   setupResultsFilters()
 
   // Scroll to results
-  document.querySelector(".search-results-section").scrollIntoView({ behavior: "smooth" })
+  setTimeout(() => {
+    const resultsSection = document.querySelector(".search-results-section")
+    if (resultsSection) {
+      resultsSection.scrollIntoView({ behavior: "smooth" })
+    }
+  }, 100)
 }
 
 // Sample bus data
@@ -381,26 +397,8 @@ function applyClassFilters() {
 
 // Back to search function
 function backToSearch() {
-  // Remove results section
-  const resultsSection = document.querySelector(".search-results-section")
-  if (resultsSection) {
-    resultsSection.remove()
-  }
-
-  // Show hero section
-  const heroSection = document.querySelector(".hero-search")
-  if (heroSection) {
-    heroSection.style.display = "block"
-  }
-
-  // Show other sections
-  const popularRoutes = document.querySelector(".popular-routes")
-  const promoSection = document.querySelector(".promo-section")
-  if (popularRoutes) popularRoutes.style.display = "block"
-  if (promoSection) promoSection.style.display = "block"
-
-  // Scroll to top
-  window.scrollTo({ top: 0, behavior: "smooth" })
+  // Reload the page to restore original state
+  window.location.reload()
 }
 
 // Select bus function
